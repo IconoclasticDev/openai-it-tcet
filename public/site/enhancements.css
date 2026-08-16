@@ -1,0 +1,130 @@
+/* =========================================================
+   ENHANCEMENTS LAYER
+   1) Home-page "Papers & Technical Write-ups" card hover,
+      replicated for inner-page knowledge cards.
+   2) Smooth, natural page transitions.
+   Loaded last: no layout or content changes.
+   ========================================================= */
+
+:root {
+  --oai-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --oai-ease-spring: cubic-bezier(0.34, 1.4, 0.5, 1);
+  --oai-ring-purple: 0 0 0 1px rgba(147, 51, 234, 0.12);
+  --oai-shadow-soft: 0 1px 2px rgba(9, 9, 11, 0.04), 0 8px 24px -12px rgba(9, 9, 11, 0.12);
+  --oai-shadow-float: 0 2px 4px rgba(9, 9, 11, 0.04), 0 24px 48px -24px rgba(76, 29, 149, 0.35);
+  --oai-shadow-glow: 0 12px 40px -12px rgba(147, 51, 234, 0.45);
+  --oai-grad-purple: linear-gradient(135deg, #9333ea 0%, #7c3aed 45%, #a855f7 100%);
+}
+
+/* ---------- Knowledge card hover (same as home page) ---------- */
+.knowledge-card {
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--oai-ring-purple), var(--oai-shadow-soft);
+  transition: transform 0.5s var(--oai-ease-out), box-shadow 0.5s var(--oai-ease-out);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.knowledge-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  background: radial-gradient(120% 90% at 100% 0%, rgba(168, 85, 247, 0.12), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s var(--oai-ease-out);
+  pointer-events: none;
+}
+
+.knowledge-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.14), transparent);
+  transform: translateX(-140%) skewX(-18deg);
+  pointer-events: none;
+}
+
+.knowledge-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 0 1px rgba(147, 51, 234, 0.28), var(--oai-shadow-float);
+  border-color: rgba(147, 51, 234, 0.28);
+}
+
+.knowledge-card:hover::before { opacity: 1; }
+.knowledge-card:hover::after { animation: oai-sheen 1.1s var(--oai-ease-out); }
+
+.knowledge-arrow {
+  background: linear-gradient(150deg, #faf5ff, #ffffff);
+  box-shadow: var(--oai-ring-purple);
+  color: #6b21a8;
+  transition: transform 0.45s var(--oai-ease-spring), background 0.45s var(--oai-ease-out),
+    color 0.45s var(--oai-ease-out), box-shadow 0.45s var(--oai-ease-out);
+}
+
+.knowledge-card:hover .knowledge-arrow {
+  background: var(--oai-grad-purple);
+  color: #ffffff;
+  transform: translate(3px, -3px);
+  box-shadow: var(--oai-shadow-glow);
+}
+
+.knowledge-tag {
+  transition: transform 0.35s var(--oai-ease-spring), background 0.35s var(--oai-ease-out),
+    color 0.35s var(--oai-ease-out);
+}
+.knowledge-card:hover .knowledge-tag { transform: translateY(-2px); }
+
+@keyframes oai-sheen {
+  0%   { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(260%) skewX(-18deg); }
+}
+
+/* ---------- Smooth, continuous page transitions ---------- */
+@keyframes oai-page-in {
+  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes oai-page-out {
+  from { opacity: 1; transform: translate3d(0, 0, 0); }
+  to   { opacity: 0; transform: translate3d(0, -6px, 0); }
+}
+
+@view-transition { navigation: auto; }
+
+/* Cross-fade: old and new overlap for the full duration, so there is
+   never a blank frame between pages. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  backface-visibility: hidden;
+}
+
+::view-transition-old(root) {
+  animation: oai-page-out 420ms cubic-bezier(0.33, 0, 0.2, 1) both;
+}
+::view-transition-new(root) {
+  animation: oai-page-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Fallback for browsers without view transitions */
+.oai-page-enter {
+  animation: oai-page-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html { background-color: #ffffff; }
+html:focus-within { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  .oai-page-enter { animation: none !important; }
+}
