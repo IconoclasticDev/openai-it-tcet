@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <title>Open AI IT TCET | Information Technology Department AI Committee | TCET Mumbai</title>
+  <meta name="description" content="Official website of Open AI IT, TCET Information Technology Department's AI committee. Paper reproduction, PyTorch systems code, LoRA fine-tuning, DPO alignment, and GPU engineering at Thakur College of Engineering & Technology, Mumbai." />
+  <meta name="theme-color" content="#9333ea" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner container">
+      <a class="logo" href="#">
+        <div class="logo-icon logo-icon--img">
+          <img src="logos/openai_logo.png" alt="Open AI IT TCET Pinwheel Logo" width="38" height="38" />
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">OPEN AI IT</span>
+          <span class="logo-sub">TCET-IT Committee</span>
+        </div>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a class="nav-link active" href="#">Home</a>
+        <a class="nav-link" href="/team">Team</a>
+        <a class="nav-link" href="/events">Events</a>
+        <a class="nav-link" href="/learn">Learn</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-label="Toggle menu" id="menu-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <button class="mobile-close" id="menu-close" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" x2="6" y1="6" y2="18"/>
+          <line x1="6" x2="18" y1="6" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <a class="mobile-nav-link active" href="#">Home</a>
+      <a class="mobile-nav-link" href="/team">Team</a>
+      <a class="mobile-nav-link" href="/events">Events</a>
+      <a class="mobile-nav-link" href="/learn">Learn</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+      </div>
+
+      <div class="hero-content container">
+
+        <h1 class="hero-title fade-up fade-up-delay-1">
+          We don't run workshops.<br />
+          <span class="hero-title-accent">We ship.</span>
+        </h1>
+
+        <p class="hero-desc fade-up fade-up-delay-2">
+          Open AI IT is TCET-IT's department-backed AI committee. Members reproduce papers, build working tools, and run technical sessions — with no certificate-only membership and no lecture-only tracks.
+        </p>
+
+        <div class="hero-actions fade-up fade-up-delay-3">
+          <a href="/team" class="btn btn-primary">
+            <span>Explore Technical Roster</span>
+            <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+            </svg>
+          </a>
+          <a href="/learn" class="btn btn-secondary">Paper & Code Index</a>
+        </div>
+
+        <div class="hero-visual fade-up fade-up-delay-4">
+          <div class="canvas-card">
+            <div class="canvas-inner">
+              <canvas id="neural-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LOGOS / EXPERIENCE ===== -->
+    <section class="logos-section" id="team">
+      <div class="container">
+        <div class="logos-header fade-up">
+          <span class="section-label">Member Experience & Exposure</span>
+          <h2 class="section-title">Where Our Members Have Interned, Built & Worked</h2>
+        </div>
+
+        <div class="logos-grid">
+          <div class="logo-card fade-up" style="transition-delay:0.05s">
+            <div class="logo-card-img"><img src="logos/iitb.svg" alt="IIT Bombay logo" loading="lazy" ></div>
+            <span class="logo-card-name">IIT Bombay</span>
+            <span class="logo-card-type">Research & Programs</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.08s">
+            <div class="logo-card-img"><img src="logos/iim_bangalore.svg" alt="IIM Bangalore logo" loading="lazy" ></div>
+            <span class="logo-card-name">IIM Bangalore</span>
+            <span class="logo-card-type">Incubation & Ventures</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.11s">
+            <div class="logo-card-img"><img src="logos/aws.svg" alt="AWS Builders logo" loading="lazy" ></div>
+            <span class="logo-card-name">AWS Builders</span>
+            <span class="logo-card-type">Technical Committee</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.14s">
+            <div class="logo-card-img"><img src="logos/reviewai.png" alt="ReviewAI logo" loading="lazy" ></div>
+            <span class="logo-card-name">ReviewAI</span>
+            <span class="logo-card-type">NSRCEL Backed</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.17s">
+            <div class="logo-card-img"><img src="logos/gdgtcet.png" alt="GDG TCET logo" loading="lazy" ></div>
+            <span class="logo-card-name">GDG TCET</span>
+            <span class="logo-card-type">Developer Community</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.20s">
+            <div class="logo-card-img"><img src="logos/acm.jpg" alt="ACM logo" loading="lazy" ></div>
+            <span class="logo-card-name">ACM</span>
+            <span class="logo-card-type">Technical Committee</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.23s">
+            <div class="logo-card-img"><img src="logos/iste.png" alt="ISTE logo" loading="lazy" ></div>
+            <span class="logo-card-name">ISTE</span>
+            <span class="logo-card-type">Technical Committee</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.26s">
+            <div class="logo-card-img"><img src="logos/gssoc.png" alt="GSSoC logo" loading="lazy" ></div>
+            <span class="logo-card-name">GSSoC</span>
+            <span class="logo-card-type">Open Source Program</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.29s">
+            <div class="logo-card-img"><img src="logos/airdawglabs.jpg" alt="Airdawg Labs logo" loading="lazy" ></div>
+            <span class="logo-card-name">Airdawg Labs</span>
+            <span class="logo-card-type">AI Labs</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.32s">
+            <div class="logo-card-img"><img src="logos/caudal.png" alt="Caudal logo" loading="lazy" ></div>
+            <span class="logo-card-name">Caudal</span>
+            <span class="logo-card-type">AI Labs</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.35s">
+            <div class="logo-card-img"><img src="logos/eliteforums.png" alt="Elite Forums logo" loading="lazy" ></div>
+            <span class="logo-card-name">Elite Forums</span>
+            <span class="logo-card-type">IT Company</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.38s">
+            <div class="logo-card-img"><img src="logos/shashtra.jpg" alt="Shashtra TCET logo" loading="lazy" ></div>
+            <span class="logo-card-name">Shashtra TCET</span>
+            <span class="logo-card-type">Technical Committee</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.41s">
+            <div class="logo-card-img"><img src="logos/static_int_educare.jpg" alt="Static Int Educare logo" loading="lazy" ></div>
+            <span class="logo-card-name">Static Int Educare</span>
+            <span class="logo-card-type">Education & Tech</span>
+          </div>
+          <div class="logo-card fade-up" style="transition-delay:0.44s">
+            <div class="logo-card-img"><img src="logos/hetav.jpg" alt="Hetav Group logo" loading="lazy" ></div>
+            <span class="logo-card-name">Hetav Group</span>
+            <span class="logo-card-type">Product & Engineering</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRACKS ===== -->
+    <section class="tracks-section">
+      <div class="container">
+        <div class="tracks-header fade-up">
+          <span class="section-label">Technical Architecture & Tracks</span>
+          <h2 class="section-title">Build. Research. Repeat.</h2>
+        </div>
+
+        <div class="tracks-list">
+          <div class="track-item fade-up">
+            <div class="track-meta">
+              <span class="track-number">01</span>
+              <div class="track-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 19h8"/><path d="m4 17 6-6-6-6"/>
+                </svg>
+              </div>
+              <span class="track-name">Build Sessions</span>
+            </div>
+            <div class="track-content">
+              <h3 class="track-title">Hands-on Technical Systems</h3>
+              <p class="track-desc">Weekly technical build sessions where members write core code, reproduce model pipelines, and build developer tools from scratch.</p>
+            </div>
+          </div>
+
+          <div class="track-item fade-up">
+            <div class="track-meta">
+              <span class="track-number">02</span>
+              <div class="track-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.7.7l3.6 3.6A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+                  <path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>
+                </svg>
+              </div>
+              <span class="track-name">Paper Reproduction</span>
+            </div>
+            <div class="track-content">
+              <h3 class="track-title">Literature Deep Dives</h3>
+              <p class="track-desc">Paper reproduction literature review. We read state-of-the-art AI papers, dissect equation math, and re-implement model architectures.</p>
+            </div>
+          </div>
+
+          <div class="track-item fade-up">
+            <div class="track-meta">
+              <span class="track-number">03</span>
+              <div class="track-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/>
+                  <path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/>
+                  <path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/>
+                  <path d="M7 20v2"/><path d="M7 2v2"/>
+                  <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/>
+                </svg>
+              </div>
+              <span class="track-name">Architecture Engineering</span>
+            </div>
+            <div class="track-content">
+              <h3 class="track-title">Model & Fine-Tuning Labs</h3>
+              <p class="track-desc">Deep neural network engineering, parameter-efficient fine-tuning (LoRA), quantization, and open-source model optimization.</p>
+            </div>
+          </div>
+
+          <div class="track-item fade-up">
+            <div class="track-meta">
+              <span class="track-number">04</span>
+              <div class="track-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15.9 4a1.5 1.5 0 0 0-2.5-1.6l-9 9A1.5 1.5 0 0 0 5.5 14h4a.5.5 0 0 1 .5.7L8.1 20a1.5 1.5 0 0 0 2.5 1.6l9-9A1.5 1.5 0 0 0 18.5 10h-4a.5.5 0 0 1-.5-.7z"/>
+                </svg>
+              </div>
+              <span class="track-name">Hackathons & Sprints</span>
+            </div>
+            <div class="track-content">
+              <h3 class="track-title">Competitive Sprints</h3>
+              <p class="track-desc">Internal technical sprints and national hackathon participation. Compete under time constraints, build core systems, win.</p>
+            </div>
+          </div>
+
+          <div class="track-item fade-up">
+            <div class="track-meta">
+              <span class="track-number">05</span>
+              <div class="track-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                  <path d="M16 3.1a4 4 0 0 1 0 7.7"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/>
+                  <circle cx="9" cy="7" r="4"/>
+                </svg>
+              </div>
+              <span class="track-name">Mentorship & Reviews</span>
+            </div>
+            <div class="track-content">
+              <h3 class="track-title">Industry Operator Talks</h3>
+              <p class="track-desc">Direct technical sessions, code reviews, and paper critiques with engineers and researchers from partner ecosystems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-card fade-up">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-number"><span class="counter" data-target="22">0</span></span>
+              <span class="stat-label">Active Members</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number"><span class="counter" data-target="5">0</span></span>
+              <span class="stat-label">Specialized Tracks</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number"><span class="counter" data-target="14">0</span>+</span>
+              <span class="stat-label">Partner Ecosystems</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2026-27</span>
+              <span class="stat-label">Academic Year</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EVENTS ===== -->
+    <section class="events-section" id="events">
+      <div class="container">
+        <div class="events-header fade-up">
+          <div>
+            <span class="section-label">Chronicle & Schedule</span>
+            <h2 class="section-title">Events & Technical Sprints</h2>
+          </div>
+          <a href="/events" class="events-link">View full schedule →</a>
+        </div>
+
+        <div class="events-grid">
+          <!-- Event 1 -->
+          <div class="event-card fade-up">
+            <div class="event-overlay">
+              <div class="event-overlay-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 5H3"/><path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/>
+                  <path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/>
+                </svg>
+                <span>Planning Phase · TBD 2026–27</span>
+              </div>
+              <span class="event-overlay-sub">Concept draft in active department roadmap review</span>
+            </div>
+            <div class="event-card-inner">
+              <div class="event-tags">
+                <span class="event-tag event-tag-type">Hackathon</span>
+                <span class="event-tag event-tag-status">TBD / Planned</span>
+              </div>
+              <h3 class="event-title">Practical AI Building Sprint & Hackathon</h3>
+              <div class="event-info">
+                <div class="event-info-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/>
+                  </svg>
+                  <span>Academic Year 2026–27 (TBD)</span>
+                </div>
+                <div class="event-info-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  <span>TCET IT Labs & Main Auditorium (TBD)</span>
+                </div>
+              </div>
+              <p class="event-desc">Timed hands-on hackathon where student teams rapidly prototype, train, and deploy functional working AI projects and autonomous applications.</p>
+              <div class="event-highlights">
+                <span class="event-highlights-label">Key Highlights & Topics</span>
+                <div class="event-highlight-item"><span class="dot">•</span><span>Event Format: Timed hands-on AI building hackathon.</span></div>
+                <div class="event-highlight-item"><span class="dot">•</span><span>Primary Focus: Functional software, models, and real project deployment.</span></div>
+                <div class="event-highlight-item"><span class="dot">•</span><span>Status: Concept draft in active planning phase for 2026–27.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="event-card fade-up fade-up-delay-1">
+            <div class="event-overlay">
+              <div class="event-overlay-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 5H3"/><path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/>
+                  <path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/>
+                </svg>
+                <span>Planning Phase · TBD 2026–27</span>
+              </div>
+              <span class="event-overlay-sub">Concept draft in active department roadmap review</span>
+            </div>
+            <div class="event-card-inner">
+              <div class="event-tags">
+                <span class="event-tag event-tag-type">Recurring Project Lab</span>
+                <span class="event-tag event-tag-status">TBD / Planned</span>
+              </div>
+              <h3 class="event-title">Full-Stack AI Systems & Project Sprints</h3>
+              <div class="event-info">
+                <div class="event-info-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/>
+                  </svg>
+                  <span>Academic Year 2026–27 (TBD)</span>
+                </div>
+                <div class="event-info-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  <span>Advanced AI Lab, TCET (TBD)</span>
+                </div>
+              </div>
+              <p class="event-desc">Recurring practical project-based lab focused on hands-on open-source model fine-tuning, full-stack AI system builds, and production deployment.</p>
+              <div class="event-highlights">
+                <span class="event-highlights-label">Key Highlights & Topics</span>
+                <div class="event-highlight-item"><span class="dot">•</span><span>Event Format: Recurring hands-on practical project sprint series.</span></div>
+                <div class="event-highlight-item"><span class="dot">•</span><span>Primary Focus: LLM fine-tuning, vLLM serving, and full-stack integration.</span></div>
+                <div class="event-highlight-item"><span class="dot">•</span><span>Status: Concept draft in active planning phase for 2026–27.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KNOWLEDGE BASE ===== -->
+    <section class="knowledge-section" id="learn">
+      <div class="container">
+        <div class="knowledge-header fade-up">
+          <div>
+            <span class="section-label">Knowledge Base</span>
+            <h2 class="section-title">Papers & Technical Write-ups</h2>
+          </div>
+          <a href="/learn" class="events-link">Browse all resources →</a>
+        </div>
+
+        <div class="knowledge-grid">
+          <!-- Paper 1 -->
+          <a href="/learn/attention-is-all-you-need-reproduction" class="knowledge-card fade-up">
+            <div>
+              <div class="knowledge-card-top">
+                <div class="knowledge-category">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v16"/><path d="M20 19A2 2 0 0 0 22 17V5a2 2 0 0 0-2-2l-4 0A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/>
+                  </svg>
+                  <span class="knowledge-category-text">Paper Reproductions</span>
+                </div>
+                <span class="knowledge-read-time">15 min read</span>
+              </div>
+              <h3 class="knowledge-title">Attention Is All You Need: Transformer Architecture from Scratch</h3>
+              <p class="knowledge-desc">Line-by-line PyTorch reproduction of scaled dot-product attention, multi-head projection matrices, and sinusoidal positional embeddings.</p>
+            </div>
+            <div class="knowledge-footer">
+              <div class="knowledge-tags">
+                <span class="knowledge-tag">#PyTorch</span>
+                <span class="knowledge-tag">#Transformers</span>
+                <span class="knowledge-tag">#Self-Attention</span>
+              </div>
+              <div class="knowledge-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- Paper 2 -->
+          <a href="/learn/lora-low-rank-adaptation-guide" class="knowledge-card fade-up fade-up-delay-1">
+            <div>
+              <div class="knowledge-card-top">
+                <div class="knowledge-category">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/>
+                    <path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/>
+                    <path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/>
+                    <path d="M7 20v2"/><path d="M7 2v2"/>
+                    <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/>
+                  </svg>
+                  <span class="knowledge-category-text">Fine-Tuning & Quantization</span>
+                </div>
+                <span class="knowledge-read-time">14 min read</span>
+              </div>
+              <h3 class="knowledge-title">LoRA: Low-Rank Adaptation of Large Language Models</h3>
+              <p class="knowledge-desc">Mathematical breakdown of rank-decomposition matrix updates (W₀ + B·A) and parameter-efficient fine-tuning on consumer GPUs.</p>
+            </div>
+            <div class="knowledge-footer">
+              <div class="knowledge-tags">
+                <span class="knowledge-tag">#LoRA</span>
+                <span class="knowledge-tag">#Fine-Tuning</span>
+                <span class="knowledge-tag">#PEFT</span>
+              </div>
+              <div class="knowledge-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- Paper 3 -->
+          <a href="/learn/direct-preference-optimization-dpo" class="knowledge-card fade-up fade-up-delay-2">
+            <div>
+              <div class="knowledge-card-top">
+                <div class="knowledge-category">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/>
+                    <path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/>
+                    <path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/>
+                    <path d="M7 20v2"/><path d="M7 2v2"/>
+                    <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/>
+                  </svg>
+                  <span class="knowledge-category-text">Fine-Tuning & Quantization</span>
+                </div>
+                <span class="knowledge-read-time">15 min read</span>
+              </div>
+              <h3 class="knowledge-title">Direct Preference Optimization (DPO): RLHF Without Reward Models</h3>
+              <p class="knowledge-desc">Closed-form preference loss optimization for aligning language models to human feedback without training a separate reward model.</p>
+            </div>
+            <div class="knowledge-footer">
+              <div class="knowledge-tags">
+                <span class="knowledge-tag">#Alignment</span>
+                <span class="knowledge-tag">#DPO</span>
+                <span class="knowledge-tag">#RLHF</span>
+              </div>
+              <div class="knowledge-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MANIFESTO / CTA ===== -->
+    <section class="manifesto-section">
+      <div class="manifesto-glow"></div>
+      <div class="container">
+        <div class="manifesto-card fade-up">
+          <div class="manifesto-content">
+            <div>
+              <span class="section-label">Operating Manifesto</span>
+              <h2 class="manifesto-title">This isn't a club that collects registrations. It's a working committee that ships technical output.</h2>
+            </div>
+
+            <div class="manifesto-points">
+              <div class="manifesto-point">
+                <div class="manifesto-point-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19h8"/><path d="m4 17 6-6-6-6"/>
+                  </svg>
+                </div>
+                <p class="manifesto-point-text"><strong>Build-first membership.</strong> Every member writes code, reproduces papers, or builds real tools. No passive participation.</p>
+              </div>
+              <div class="manifesto-point">
+                <div class="manifesto-point-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.7.7l3.6 3.6A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+                    <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+                  </svg>
+                </div>
+                <p class="manifesto-point-text"><strong>Open research culture.</strong> We read, discuss, and re-implement frontier AI papers — not just summarize them on slides.</p>
+              </div>
+              <div class="manifesto-point">
+                <div class="manifesto-point-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-5"/>
+                  </svg>
+                </div>
+                <p class="manifesto-point-text"><strong>Department-backed credibility.</strong> Open AI IT operates under the Department of Information Technology, TCET — with direct faculty oversight and institutional support.</p>
+              </div>
+            </div>
+
+            <div class="manifesto-actions">
+              <a href="/team" class="btn btn-primary">
+                <span>View Team Roster</span>
+                <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                </svg>
+              </a>
+              <a href="/learn" class="btn btn-secondary">Browse Research Index</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-brand-name">Open AI IT — TCET Mumbai</span>
+          <p class="footer-brand-desc">Department of Information Technology's AI committee. Frontier research, paper reproduction, fine-tuning, and systems engineering.</p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-link-group">
+            <h4>Navigate</h4>
+            <a href="/">Home</a>
+            <a href="/team">Team</a>
+            <a href="/events">Events</a>
+            <a href="/learn">Learn</a>
+          </div>
+          <div class="footer-link-group">
+            <h4>Resources</h4>
+            <a href="#">Paper Index</a>
+            <a href="#">Code Repos</a>
+            <a href="#">Technical Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Open AI IT TCET. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/openai-it-tcet/" class="footer-social" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/tcet_it.openai" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
